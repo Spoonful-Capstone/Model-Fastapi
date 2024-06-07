@@ -19,7 +19,9 @@ pip install numpy tensorflow fastapi uvicorn
 - Rename your `H5` model similar with main.py -> `model.h5`
 - Make sure your model in the same directory with your main.py
 - run with this command in your terminal
-  `uvicorn main:app --reload`
+  ```bash
+  uvicorn main:app --reload
+  ```
 
 ## Check API
 
