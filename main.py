@@ -21,9 +21,6 @@ app.add_middleware(
 
 model = tf.keras.models.load_model("model.h5")
 
-
-
-
 class_id = ['Ayam Betutu', 'Beberuk Terong', 'Coto Makassar', 'Gudeg', 'Kerak Telor', 'Mie Aceh', 'Nasi Kuning', 
             'Nasi Pecel', 'Papeda', 'Pempek', 'Peuyeum', 'Rawon', 'Rendang', 'Sate Madura', 'Serabi', 'Soto Banjar',
             'Soto Lamongan', 'Tahu Sumedang']
@@ -34,7 +31,6 @@ nutri_df = pd.DataFrame({
     'Karbohidrat': [6.32, 7.09, 12.92, 22.54, 55.58, 17.96, 2.99, 31.74, 14.03, 4.72, 39.90, 3.48, 4.49, 0.73, 21.05, 5.29, 19.55, 1.30]
 })
 result = []
-
 
 @app.post("/predict-image/")
 async def predict_image(file: UploadFile = File(...)):    
@@ -58,9 +54,11 @@ async def predict_image(file: UploadFile = File(...)):
     carb = json.dumps(float(nutri_df['Karbohidrat'].iloc[result.index(m)]))
         
     return JSONResponse(content={
-        "Nutrition": class_id[result.index(m)], 
-        "Calories": cal, 
-        "Proteins": prot,
-        "Fat": fat,
-        "Carbohydrate": carb}, status_code=200)
+        "Name": class_id[result.index(m)], 
+        "Nutritions": {
+            "Calories": cal, 
+            "Proteins": prot,
+            "Fat": fat,
+            "Carbohydrate": carb}
+        }, status_code=200)
     

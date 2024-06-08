@@ -9,13 +9,13 @@ Install dependency using `pip`
 > _Run using python virtual environtment more recommended_
 
 ```python
-pip install numpy tensorflow fastapi uvicorn
+pip install numpy tensorflow pandas fastapi uvicorn
 ```
 
 ## How to run ?
 
 - Make sure you already installed all libraries needs
-- Download model `H5` [HERE](https://drive.google.com/file/d/1AmsC4JdKICY33dZYf8JIg1y1vbIKDcnt/view?usp=sharing) **NOTED: this model is large in size**
+- Download model `H5` [here](https://drive.google.com/file/d/1AmsC4JdKICY33dZYf8JIg1y1vbIKDcnt/view?usp=sharing) *NOTED: this model is large in size*
 - Rename your `H5` model similar with main.py -> `model.h5`
 - Make sure your model in the same directory with your main.py
 - run with this command in your terminal
